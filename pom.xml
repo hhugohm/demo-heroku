@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>floating-thicket-57643</name>
+	<name>demo-heroku</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -68,7 +68,7 @@
 				<groupId>com.heroku.sdk</groupId>
 				<artifactId>heroku-maven-plugin</artifactId>
 				<configuration>
-					<appName>floating-thicket-57643</appName>
+					<appName>heroku-neosuniversity</appName>
 					<processTypes>
 						<!--
 						<web>java -cp target/classes/;target/dependency/* com.neosuniversity.demoheroku.DemoHerokuApplication</web>
