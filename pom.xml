@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>demo-heroku</name>
+	<name>floating-thicket-57643</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -52,14 +52,41 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
-			<!-- Heroku Maven Plugin Configuration -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals><goal>copy-dependencies</goal></goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<configuration>
+					<appName>floating-thicket-57643</appName>
+					<processTypes>
+						<!--
+						<web>java -cp target/classes/;target/dependency/* com.neosuniversity.demoheroku.DemoHerokuApplication</web>
+						-->
+						<!--
+						<web>java $JAVA_OPTS -cp target/classes/;target/dependency/* DemoHerokuApplication</web>
+						-->
+						<web>java -jar target/demo-heroku-0.0.1-SNAPSHOT.jar</web>
+					</processTypes>
+				</configuration>
+			</plugin>
+			<!-- Heroku Maven Plugin Configuration
 			<plugin>
 				<groupId>com.heroku.sdk</groupId>
 				<artifactId>heroku-maven-plugin</artifactId>
 				<version>2.0.6</version>
 				<configuration>
-					<appName>demo-heroku</appName>
+					<appName>floating-thicket-57643</appName>
 					<includeTarget>false</includeTarget>
 					<includes>
 						<include>${project.build.directory}/${project.build.finalName}.jar</include>
@@ -70,6 +97,7 @@
 					</processTypes>
 				</configuration>
 			</plugin>
+			-->
 		</plugins>
 	</build>
 
