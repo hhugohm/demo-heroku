@@ -9,7 +9,7 @@ public class GreetingController {
 
     @GetMapping("/")
     public String getGreeting(){
-        return "Hello world heroku + Spring boot";
+        return "Hello world heroku neos+ Spring boot";
     }
 
 }
